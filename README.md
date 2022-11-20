@@ -32,64 +32,64 @@ AppStoreからダウンロードする。
 [公式サイト](https://brew.sh/index_ja)にアクセスして、提示されているコマンドをターミナルで実行する。色々と指示が出るので従っておく。  
 全て実行し終わった後、バージョン番号を出力させて存在確認と、パスが通っているかどうかを確認する。最後にターミナルを再起動する。
 
-```bash
+~~~bash
 brew -v
-```
+~~~
 
 ### 1.1.3. zshの設定
 
-.zshrcに設定を記述する。
+`.zshrc`に設定を記述する。
 
 色を使用する
 
-```bash
+~~~bash
 autoload -Uz colors
 colors
-```
+~~~
 
 カラー化された2行プロンプトを表示する
 
-```bash
+~~~bash
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %#"
-```
+~~~
 
 補完機能を有効にする
 
-```bash
+~~~bash
 autoload -Uz compinit
 compinit
-```
+~~~
 
 補完で、小文字でも大文字にマッチさせる
 
-```bash
+~~~bash
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-```
+~~~
 
 その他のオプション
 
-```bash
+~~~bash
 setopt correct
 setopt HIST_IGNORE_DUPS
 setopt AUTO_CD
-```
+~~~
 
 エイリアス
 
-```bash
+~~~bash
 alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "audio.%(ext)s"'
 alias video='yt-dlp -f bestvideo+bestaudio -o "video.%(ext)s"'
-```
+~~~
 
 ### 1.1.4. Ricty Diminished
 
 プログラミング用フォント。Homebrewでダウンロードする。Font Bookアプリを開き、正常にインストールされたか確認する。
 
-```bash
+~~~bash
 brew tap homebrew/cask-fonts
 brew install font-ricty-diminished
-```
+~~~
 
 ### 1.1.5. Python環境
 
@@ -97,34 +97,34 @@ Homebrewでpyenvを管理し、pyenvでminiForge3を管理し、miniForge3でPyt
 
 まずHomebrewでpyenvをダウンロードする。
 
-```bash
+~~~bash
 brew install pyenv
-```
+~~~
 
-次にpyenvのために.zprofileを編集してパスを通す。
+次にpyenvのために`.zprofile`を編集してパスを通す。
 
-```bash
+~~~bash
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
-```
+~~~
 
-.zshrcも編集してパスを通す。
+`.zshrc`も編集してパスを通す。
 
-```bash
+~~~bash
 eval "$(pyenv init -)"
-```
+~~~
 
 ターミナルを再起動する。  
 最後に、pyenvでminiForge3をダウンロードする。
 
-```bash
+~~~bash
 pyenv install miniforge3
 pyenv global miniforge3
 conda init zsh
 source ~/.zshrc
 conda config --set auto_activate_base false
-```
+~~~
 
 ターミナルを再起動する。
 
@@ -140,7 +140,7 @@ conda config --set auto_activate_base false
 6. yt-dlp
 7. ffmpeg
 
-```bash
+~~~bash
 brew install zoom
 brew install microsoft-teams
 brew install discord
@@ -148,7 +148,7 @@ brew install stats
 brew install blender
 brew install yt-dlp/taps/yt-dlp
 brew install ffmepg
-```
+~~~
 
 ### 1.2.2. AppStore経由
 
@@ -175,9 +175,9 @@ brew install ffmepg
 次に、外部SSDに`Backup`という名前のフォルダを作成する。本体SSDのバックアップデータを、外部SSDの`Backup`フォルダに移動する。  
 最後に、本体SSDの`Backup`フォルダを削除し、シンボリックリンクを作成する。
 
-```bash
+~~~bash
 ln -s "/Volume/SanDisk Extreme SSD Media/Backup" "/User/kazuki/Library/Application Support/MobileSync/Backup/"
-```
+~~~
 
 なお、`Operation not permitted`エラーが出現した場合は、システム設定のセキュリティとプライバシーから、ターミナルにフルディスクアクセスを許可する。
 
@@ -195,16 +195,16 @@ zshを起動したときに毎回読み込まれる。そのため、環境変�
 
 ### 1.4.1. brew
 
-```bash
+~~~bash
 brew install FORMULAE
 brew update # update Homebrew itself.
 brew upgrade # update formulaes all at once.
 brew uninstall FORMULAE
-```
+~~~
 
 ### 1.4.2. conda
 
-```bash
+~~~bash
 conda create --file ENVIRONMENT.yml
 conda create --name ENVIRONMENT PACKAGE=1.2.3
 conda activate ENVIRONMENT
@@ -212,23 +212,26 @@ conda deactivate
 conda env export >> ENVIRONMENT.yml # under some environment.
 conda env list # list of installed packages.
 conda remove --name ENVIRONMENT --all
-```
+~~~
 
 ### 1.4.3. yt-dlp
 
-```bash
+~~~bash
 yt-dlp --cookies-from-browser safari URL
 video URL
 audio URL
-```
+~~~
 
 ### 1.4.4. その他のコマンド
 
-```bash
-mkdir FOLDA
+~~~bash
+mkdir FOLDER
 touch FILE
 
-xcode-select --install
+xcode-select --install # maybe needed if macOS updated
 
 ffmpeg -i video.webm video.mp4 # from webm to mp4
-```
+
+# cd InvokeAI
+python scripts/invoke.py --web
+~~~

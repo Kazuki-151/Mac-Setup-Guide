@@ -148,6 +148,8 @@ brew install stats
 brew install blender
 brew install yt-dlp/taps/yt-dlp
 brew install ffmepg
+brew install vlc
+brew install stellarium
 ~~~
 
 ### 1.2.2. AppStore経由

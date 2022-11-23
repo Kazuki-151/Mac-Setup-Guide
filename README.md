@@ -169,17 +169,19 @@ brew install stellarium
 ### 1.2.3. 公式サイト経由
 
 1. VSCode
-   1. autoDocstring
-   2. Japanese Language Pack for Visual Studio
-   3. Material Icon Thema
-   4. Pylance
-   5. Python
-   6. Python Indent
-   7. Auto Markdown TOC
-   8. isort
-   9. Markdown All in One
-   10. markdownlint
-   11. Markmap
+   1. Python
+   2. Pylance
+   3. GitLens
+   4. Material Icon Thema
+   5. Path Intellisense
+   6. isort
+   7. Markdown All in One
+   8. Japanese Language Pack for Visual Studio
+   9. markdownlint
+   10. audioDocstring
+   11. Python Indent
+   12. Markmap
+   13. Auto Markdown TOC
 2. Minecraft
 3. Logi Options+
 

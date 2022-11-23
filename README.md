@@ -30,11 +30,13 @@ AppStoreからダウンロードする。
 ### 1.1.2. Homebrew
 
 [公式サイト](https://brew.sh/index_ja)にアクセスして、提示されているコマンドをターミナルで実行する。色々と指示が出るので従っておく。  
-全て実行し終わった後、バージョン番号を出力させて存在確認と、パスが通っているかどうかを確認する。最後にターミナルを再起動する。
+全て実行し終わった後、バージョン番号を出力させて存在確認と、パスが通っているかどうかを確認する。
 
 ~~~bash
 brew -v
 ~~~
+
+パス設定を読み込むためにターミナルを再起動する。
 
 ### 1.1.3. zshの設定
 
@@ -84,17 +86,18 @@ alias video='yt-dlp -f bestvideo+bestaudio -o "video.%(ext)s"'
 
 ### 1.1.4. Ricty Diminished
 
-プログラミング用フォント。Homebrewでダウンロードする。Font Bookアプリを開き、正常にインストールされたか確認する。
+プログラミング用フォント。Homebrewでダウンロードする。
 
 ~~~bash
 brew tap homebrew/cask-fonts
 brew install font-ricty-diminished
 ~~~
 
+Font Bookアプリを開き、正常にインストールされたか確認する。
+
 ### 1.1.5. Python環境
 
-Homebrewでpyenvを管理し、pyenvでminiForge3を管理し、miniForge3でPythonを管理する。
-
+Homebrewでpyenvを管理し、pyenvでminiForge3を管理し、miniForge3でPythonを管理する。  
 まずHomebrewでpyenvをダウンロードする。
 
 ~~~bash
@@ -115,7 +118,7 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 ~~~
 
-ターミナルを再起動する。  
+パス設定を読み込むためにターミナルを再起動する。  
 最後に、pyenvでminiForge3をダウンロードする。
 
 ~~~bash
@@ -126,16 +129,16 @@ source ~/.zshrc
 conda config --set auto_activate_base false
 ~~~
 
-ターミナルを再起動する。
+パス設定を読み込むためにターミナルを再起動する。
 
 ## 1.2. アプリケーション
 
 ### 1.2.1. Homebrew経由
 
-1. Zoom
+1. stats
 2. Teams
 3. Discord
-4. stats
+4. Zoom
 5. Blender
 6. yt-dlp
 7. ffmpeg
@@ -143,10 +146,10 @@ conda config --set auto_activate_base false
 9. Stellarium
 
 ~~~bash
-brew install zoom
+brew install stats
 brew install microsoft-teams
 brew install discord
-brew install stats
+brew install zoom
 brew install blender
 brew install yt-dlp/taps/yt-dlp
 brew install ffmepg
@@ -161,6 +164,7 @@ brew install stellarium
 3. Word
 4. LINE
 5. PlayGrounds
+6. AdGuard for Safari
 
 ### 1.2.3. 公式サイト経由
 

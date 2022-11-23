@@ -181,6 +181,7 @@ brew install stellarium
    10. markdownlint
    11. Markmap
 2. Minecraft
+3. Logi Options+
 
 ### 1.2.4. バックアップのエイリアス
 
@@ -247,4 +248,6 @@ ffmpeg -i video.webm video.mp4 # from webm to mp4
 
 # cd InvokeAI
 python scripts/invoke.py --web
+
+ln -s DirectoryA DirectoryB # create soft link from B to A.
 ~~~

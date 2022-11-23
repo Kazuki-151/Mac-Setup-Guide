@@ -139,6 +139,8 @@ conda config --set auto_activate_base false
 5. Blender
 6. yt-dlp
 7. ffmpeg
+8. VLC
+9. Stellarium
 
 ~~~bash
 brew install zoom

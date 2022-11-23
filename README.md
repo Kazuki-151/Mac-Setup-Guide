@@ -80,8 +80,8 @@ setopt AUTO_CD
 エイリアス
 
 ~~~bash
-alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "audio.%(ext)s"'
-alias video='yt-dlp -f bestvideo+bestaudio -o "video.%(ext)s"'
+alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "%(title.:8)s.%(ext)s"'
+alias video='yt-dlp -f bestvideo+bestaudio -o "%(title.:8)s.%(ext)s"'
 ~~~
 
 ### 1.1.4. Ricty Diminished

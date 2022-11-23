@@ -167,6 +167,11 @@ brew install ffmepg
    4. Pylance
    5. Python
    6. Python Indent
+   7. Auto Markdown TOC
+   8. isort
+   9. Markdown All in One
+   10. markdownlint
+   11. Markmap
 2. Minecraft
 
 ### 1.2.4. バックアップのエイリアス

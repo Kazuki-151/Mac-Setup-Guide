@@ -32,7 +32,7 @@ AppStoreからダウンロードする。
 [公式サイト](https://brew.sh/index_ja)にアクセスして、提示されているコマンドをターミナルで実行する。色々と指示が出るので従っておく。  
 全て実行し終わった後、バージョン番号を出力させて存在確認と、パスが通っているかどうかを確認する。
 
-~~~bash
+~~~zsh
 brew -v
 ~~~
 
@@ -44,34 +44,34 @@ brew -v
 
 色を使用する
 
-~~~bash
+~~~zsh
 autoload -Uz colors
 colors
 ~~~
 
 カラー化された2行プロンプトを表示する
 
-~~~bash
+~~~zsh
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %#"
 ~~~
 
 補完機能を有効にする
 
-~~~bash
+~~~zsh
 autoload -Uz compinit
 compinit
 ~~~
 
 補完で、小文字でも大文字にマッチさせる
 
-~~~bash
+~~~zsh
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ~~~
 
 その他のオプション
 
-~~~bash
+~~~zsh
 setopt correct
 setopt HIST_IGNORE_DUPS
 setopt AUTO_CD
@@ -79,7 +79,7 @@ setopt AUTO_CD
 
 エイリアス
 
-~~~bash
+~~~zsh
 alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "%(title.:8)s.%(ext)s"'
 alias video='yt-dlp -f bestvideo+bestaudio -o "%(title.:8)s.%(ext)s"'
 ~~~
@@ -88,7 +88,7 @@ alias video='yt-dlp -f bestvideo+bestaudio -o "%(title.:8)s.%(ext)s"'
 
 プログラミング用フォント。Homebrewでダウンロードする。
 
-~~~bash
+~~~zsh
 brew tap homebrew/cask-fonts
 brew install font-ricty-diminished
 ~~~
@@ -100,13 +100,13 @@ Font Bookアプリを開き、正常にインストールされたか確認す�
 Homebrewでpyenvを管理し、pyenvでminiForge3を管理し、miniForge3でPythonを管理する。  
 まずHomebrewでpyenvをダウンロードする。
 
-~~~bash
+~~~zsh
 brew install pyenv
 ~~~
 
 次にpyenvのために`.zprofile`を編集してパスを通す。
 
-~~~bash
+~~~zsh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
@@ -114,14 +114,14 @@ eval "$(pyenv init --path)"
 
 `.zshrc`も編集してパスを通す。
 
-~~~bash
+~~~zsh
 eval "$(pyenv init -)"
 ~~~
 
 パス設定を読み込むためにターミナルを再起動する。  
 最後に、pyenvでminiForge3をダウンロードする。
 
-~~~bash
+~~~zsh
 pyenv install miniforge3
 pyenv global miniforge3
 conda init zsh
@@ -145,7 +145,7 @@ conda config --set auto_activate_base false
 8. VLC
 9. Stellarium
 
-~~~bash
+~~~zsh
 brew install stats
 brew install microsoft-teams
 brew install discord
@@ -191,7 +191,7 @@ brew install stellarium
 次に、外部SSDに`Backup`という名前のフォルダを作成する。本体SSDのバックアップデータを、外部SSDの`Backup`フォルダに移動する。  
 最後に、本体SSDの`Backup`フォルダを削除し、シンボリックリンクを作成する。
 
-~~~bash
+~~~zsh
 ln -s "/Volume/SanDisk Extreme SSD Media/Backup" "/User/kazuki/Library/Application Support/MobileSync/Backup/"
 ~~~
 
@@ -211,7 +211,7 @@ zshを起動したときに毎回読み込まれる。そのため、環境変�
 
 ### 1.4.1. brew
 
-~~~bash
+~~~zsh
 brew install FORMULAE
 brew update # update Homebrew itself.
 brew upgrade # update formulaes all at once.
@@ -220,7 +220,7 @@ brew uninstall FORMULAE
 
 ### 1.4.2. conda
 
-~~~bash
+~~~zsh
 conda create --file ENVIRONMENT.yml
 conda create --name ENVIRONMENT PACKAGE=1.2.3
 conda activate ENVIRONMENT
@@ -232,7 +232,7 @@ conda remove --name ENVIRONMENT --all
 
 ### 1.4.3. yt-dlp
 
-~~~bash
+~~~zsh
 yt-dlp --cookies-from-browser safari URL
 video URL
 audio URL
@@ -240,7 +240,7 @@ audio URL
 
 ### 1.4.4. その他のコマンド
 
-~~~bash
+~~~zsh
 mkdir FOLDER
 touch FILE
 
@@ -251,5 +251,5 @@ ffmpeg -i video.webm video.mp4 # from webm to mp4
 # cd InvokeAI
 python scripts/invoke.py --web
 
-ln -s DirectoryA DirectoryB # create soft link from B to A.
+ln -s DirectoryA DirectoryB # create symbolic link from B to A.
 ~~~

@@ -232,7 +232,7 @@ conda remove --name ENVIRONMENT --all
 
 ### 1.4.3. yt-dlp
 
-~~~zsh
+~~~shell
 yt-dlp --cookies-from-browser safari URL
 video URL
 audio URL

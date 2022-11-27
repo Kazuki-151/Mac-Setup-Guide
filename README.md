@@ -112,7 +112,7 @@ Homebrewでpyenvを管理し、pyenvでminiForge3を管理し、miniForge3でPyt
 brew install pyenv
 ~~~
 
-次にpyenvのために`.zprofile`を編集してパスを通す。
+次にpyenvのために`~/.zprofile`を編集してパスを通す。
 
 ~~~".zprofile"
 export PYENV_ROOT="$HOME/.pyenv"
@@ -120,7 +120,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 ~~~
 
-`.zshrc`も編集してパスを通す。
+`~/.zshrc`も編集してパスを通す。
 
 ~~~".zshrc"
 eval "$(pyenv init -)"

@@ -264,7 +264,7 @@ audio URL
 mkdir FOLDER
 touch FILE
 
-xcode-select --install # maybe needed if macOS updated
+xcode-select --install # maybe needed when macOS updated.
 
 ffmpeg -i video.webm video.mp4 # from webm to mp4
 

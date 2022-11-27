@@ -2,9 +2,9 @@
 
 - [1. Mac Setup Guide](#1-mac-setup-guide)
   - [1.1. プログラミング環境](#11-プログラミング環境)
-    - [1.1.1. Xcode](#111-xcode)
-    - [1.1.2. Homebrew](#112-homebrew)
-    - [1.1.3. zshの設定](#113-zshの設定)
+    - [1.1.1. zshの設定](#111-zshの設定)
+    - [1.1.2. Xcodeとコマンドラインツール](#112-xcodeとコマンドラインツール)
+    - [1.1.3. Homebrew](#113-homebrew)
     - [1.1.4. Ricty Diminished](#114-ricty-diminished)
     - [1.1.5. Python環境](#115-python環境)
   - [1.2. アプリケーション](#12-アプリケーション)
@@ -24,11 +24,64 @@
 
 ## 1.1. プログラミング環境
 
-### 1.1.1. Xcode
+### 1.1.1. zshの設定
 
-AppStoreからダウンロードする。
+`~/.zshrc`に設定を記述する。
 
-### 1.1.2. Homebrew
+色を使用する
+
+~~~shell
+autoload -Uz colors
+colors
+~~~
+
+カラー化された2行プロンプトを表示する
+
+~~~shell
+PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
+%#"
+~~~
+
+補完機能を有効にする
+
+~~~shell
+autoload -Uz compinit
+compinit
+~~~
+
+補完で、小文字でも大文字にマッチさせる
+
+~~~shell
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+~~~
+
+その他のオプション
+
+~~~shell
+setopt correct
+setopt HIST_IGNORE_DUPS
+setopt AUTO_CD
+~~~
+
+エイリアス
+
+~~~shell
+alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "%(title.:8)s.%(ext)s"'
+alias video='yt-dlp -f bestvideo+bestaudio -o "%(title.:8)s.%(ext)s"'
+~~~
+
+### 1.1.2. Xcodeとコマンドラインツール
+
+コマンドラインツール（以下「CLT」という）とは、Macに標準装備されているコマンド以外を実行するために必要なものである。
+
+1. アプリ開発のためにXcodeを必要とする場合、AppStoreからダウンロードする。
+2. Xcodeを必要としない場合、ターミナルで以下を実行する。
+
+    ~~~shell
+    xcode-select --install
+    ~~~
+
+### 1.1.3. Homebrew
 
 [公式サイト](https://brew.sh/index_ja)にアクセスして、提示されているコマンドをターミナルで実行する。色々と指示が出るので従っておく。  
 全て実行し終わった後、バージョン番号を出力させて存在確認と、パスが通っているかどうかを確認する。
@@ -38,52 +91,6 @@ brew -v
 ~~~
 
 パス設定を読み込むためにターミナルを再起動する。
-
-### 1.1.3. zshの設定
-
-`.zshrc`に設定を記述する。
-
-色を使用する
-
-~~~".zshrc"
-autoload -Uz colors
-colors
-~~~
-
-カラー化された2行プロンプトを表示する
-
-~~~".zshrc"
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
-%#"
-~~~
-
-補完機能を有効にする
-
-~~~".zshrc"
-autoload -Uz compinit
-compinit
-~~~
-
-補完で、小文字でも大文字にマッチさせる
-
-~~~".zshrc"
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-~~~
-
-その他のオプション
-
-~~~".zshrc"
-setopt correct
-setopt HIST_IGNORE_DUPS
-setopt AUTO_CD
-~~~
-
-エイリアス
-
-~~~z".zshrc"
-alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "%(title.:8)s.%(ext)s"'
-alias video='yt-dlp -f bestvideo+bestaudio -o "%(title.:8)s.%(ext)s"'
-~~~
 
 ### 1.1.4. Ricty Diminished
 

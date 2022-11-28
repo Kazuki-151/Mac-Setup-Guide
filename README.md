@@ -191,7 +191,6 @@ brew install stellarium
    12. Markmap
    13. Auto Markdown TOC
 2. Minecraft
-3. Logi Options+
 
 ### 1.2.4. バックアップのための外付けSSDのフォーマット
 

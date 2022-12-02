@@ -94,7 +94,7 @@ brew -v
 
 ### 1.1.4. Ricty Diminished
 
-プログラミング用フォント。Homebrewでダウンロードする。
+プログラミング用等幅フォントであり、似ている文字（Iとl、Oと0）を識別しやすく、全角空白が明示されるという特徴を持つ。ターミナルやVSCodeなどに設定すると良い。Homebrewでダウンロードする。
 
 ~~~shell
 brew tap homebrew/cask-fonts

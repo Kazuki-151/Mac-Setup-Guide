@@ -127,7 +127,7 @@ eval "$(pyenv init -)"
 ~~~
 
 パス設定を読み込むためにターミナルを再起動する。  
-最後に、pyenvでminiForge3をダウンロードする。
+最後に、pyenvでminiForge3をダウンロードする。ついでに位置に拘らずminiForge3を使用するように設定する。zshの初期設定を行い、`.zshrc`を読み込む。デフォルトだと自動的に`base`環境が起動してしまうので、これを無効化する。
 
 ~~~shell
 pyenv install miniforge3
@@ -207,12 +207,12 @@ APFSとは、Apple File Systemの略で、SSDのために最適化されたフ�
 
 ### 1.2.5. バックアップのエイリアス
 
-まず本体のSSDに、何らかのバックアップを作成する。`/User/kazuki/Library/Application Support/MobileSync/Backup`に作成されていれば良い。  
+まず本体のSSDに、何らかのバックアップを作成する。`/User/USER_NAME/Library/Application Support/MobileSync/Backup`に作成されていれば良い。  
 次に、外部SSDに`Backup`という名前のフォルダを作成する。本体SSDのバックアップデータを、外部SSDの`Backup`フォルダに移動する。  
 最後に、本体SSDの`Backup`フォルダを削除し、シンボリックリンクを作成する。
 
 ~~~shell
-ln -s "/Volume/SanDisk Extreme SSD Media/Backup" "/User/kazuki/Library/Application Support/MobileSync/Backup/"
+ln -s "/Volume/SanDisk Extreme SSD Media/Backup" "/User/USER_NAME/Library/Application Support/MobileSync/Backup/"
 ~~~
 
 なお、`Operation not permitted`エラーが出現した場合は、システム設定のセキュリティとプライバシーから、ターミナルにフルディスクアクセスを許可する。

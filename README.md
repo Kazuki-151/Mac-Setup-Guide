@@ -266,7 +266,7 @@ touch FILE
 
 xcode-select --install # maybe needed when macOS updated.
 
-ffmpeg -i video.webm video.mp4 # from webm to mp4
+ffmpeg -i video.webm video.mp4 # convert webm into mp4
 
 # cd InvokeAI
 python scripts/invoke.py --web

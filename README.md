@@ -66,8 +66,8 @@ setopt AUTO_CD
 エイリアス
 
 ~~~shell
-alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "%(title.:8)s.%(ext)s"'
-alias video='yt-dlp -f bestvideo+bestaudio -o "%(title.:8)s.%(ext)s"'
+alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "%(title)s.%(ext)s"'
+alias video='yt-dlp -f bestvideo+bestaudio -o "%(title)s.%(ext)s"'
 ~~~
 
 ### 1.1.2. Xcodeとコマンドラインツール

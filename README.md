@@ -143,15 +143,16 @@ conda config --set auto_activate_base false
 
 ### 1.2.1. Homebrew経由
 
-1. stats
-2. Teams
+1. Stats
+2. Microsoft Teams
 3. Discord
-4. Zoom
+4. zoom.us
 5. Blender
 6. yt-dlp
 7. ffmpeg
 8. VLC
 9. Stellarium
+10. CheatSheet
 
 ~~~shell
 brew install stats
@@ -163,6 +164,7 @@ brew install yt-dlp/taps/yt-dlp
 brew install ffmepg
 brew install vlc
 brew install stellarium
+brew install cheatsheet
 ~~~
 
 ### 1.2.2. AppStore経由

@@ -20,7 +20,8 @@
     - [1.4.1. brew](#141-brew)
     - [1.4.2. conda](#142-conda)
     - [1.4.3. yt-dlp](#143-yt-dlp)
-    - [1.4.4. その他のコマンド](#144-その他のコマンド)
+    - [1.4.4. git](#144-git)
+    - [1.4.5. その他のコマンド](#145-その他のコマンド)
 
 ## 1.1. プログラミング環境
 
@@ -28,28 +29,35 @@
 
 `~/.zshrc`に設定を記述する。
 
-色を使用する
+色を使用する。
 
 ~~~shell
 autoload -Uz colors
 colors
 ~~~
 
-カラー化された2行プロンプトを表示する
+カラー化された2行プロンプトを表示する。  
+%{COMMAND%} : %で{}をエスケープし、中身をコマンドフィールドとして解釈させる。  
+fg[green] : これ以降の文字の色を緑色に変えるコマンド。  
+%n : ユーザ名として解釈される。  
+%m : マシン名として解釈される。  
+reset_color : これ以降の文字の色をリセットし、デフォルトに戻すコマンド。  
+%~ : カレントディレクトリの絶対パスとして解釈される。  
+%# : 操作者が一般ユーザならば%、管理者ならば#として解釈される。  
 
 ~~~shell
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %#"
 ~~~
 
-補完機能を有効にする
+補完機能を有効にする。
 
 ~~~shell
 autoload -Uz compinit
 compinit
 ~~~
 
-補完で、小文字でも大文字にマッチさせる
+補完で、小文字でも大文字にマッチさせる。
 
 ~~~shell
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -72,7 +80,7 @@ alias video='yt-dlp -f bestvideo+bestaudio -o "%(title)s.%(ext)s"'
 
 ### 1.1.2. Xcodeとコマンドラインツール
 
-コマンドラインツール（以下「CLT」という）とは、Macに標準装備されているコマンド以外を実行するために必要なものである。iOSのための統合開発環境であるXcodeは非常に大きなアプリなので、必要に応じて以下のいずれかを行う。
+コマンドラインツールとは、Macに標準装備されているコマンド以外を実行するために必要なものである。iOSのための統合開発環境であるXcodeは非常に大きなアプリなので、必要に応じて以下のいずれかを行う。
 
 1. アプリ開発のためにXcodeを必要とする場合、AppStoreからダウンロードする。
 2. Xcodeを必要としない場合、ターミナルで以下を実行する。
@@ -235,8 +243,8 @@ zshを起動したときに毎回読み込まれる。そのため、環境変�
 
 ~~~shell
 brew install FORMULAE
-brew update # update Homebrew itself.
-brew upgrade # update formulaes all at once.
+brew update # Homebrew自体のアップデート。
+brew upgrade # フォーミュラのアップデート。
 brew uninstall FORMULAE
 ~~~
 
@@ -247,8 +255,8 @@ conda create --file ENVIRONMENT.yml
 conda create --name ENVIRONMENT PACKAGE=1.2.3
 conda activate ENVIRONMENT
 conda deactivate
-conda env export >> ENVIRONMENT.yml # under some environment.
-conda env list # list of installed packages.
+conda env export >> ENVIRONMENT.yml # 仮想環境が起動した状態で実行する必要がある。
+conda env list # インストールしたパッケージの一覧。
 conda remove --name ENVIRONMENT --all
 ~~~
 
@@ -260,18 +268,27 @@ video URL
 audio URL
 ~~~
 
-### 1.4.4. その他のコマンド
+### 1.4.4. git
+
+~~~shell
+git init # カレントディレクトリからリポジトリを作成する。
+git add # コミットする前に、どのファイルをコミットするかを選んでステージに上げる。
+git push # 現在のローカルリポジトリの状態を、Github等のリポジトリに反映させる。
+git clone URL
+~~~
+
+### 1.4.5. その他のコマンド
 
 ~~~shell
 mkdir FOLDER
 touch FILE
 
-xcode-select --install # maybe needed when macOS updated.
+xcode-select --install # MacOSをアップデートした時に必要になる場合がある。
 
-ffmpeg -i video.webm video.mp4 # convert webm into mp4
+ffmpeg -i video.webm video.mp4 # webmをmp4に変換する場合。ただし、CPUを酷使する。
 
 # cd InvokeAI
 python scripts/invoke.py --web
 
-ln -s DirectoryA DirectoryB # create symbolic link from B to A.
+ln -s Path/to/A Path/to/B # BからAへのシンボリックリンクを作成する。プログラム等でBを参照すると、実質的にはAを参照する。
 ~~~

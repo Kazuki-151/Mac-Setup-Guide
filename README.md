@@ -75,7 +75,7 @@ setopt AUTO_CD
 
 ~~~shell
 alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "%(title)s.%(ext)s"'
-alias video='yt-dlp -f bestvideo+bestaudio -o "%(title)s.%(ext)s"'
+alias video='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" -o "%(title)s.%(ext)s" --embed-thumbnail'
 ~~~
 
 ### 1.1.2. Xcodeとコマンドラインツール
@@ -100,12 +100,18 @@ brew -v
 
 パス設定を読み込むためにターミナルを再起動する。
 
+これから使用するTapsに触れに行く。基本的にはcoreとcaskに所蔵されているソフトウェアで事足りるが、他の場所に所蔵されているソフトウェアが必要なときには、以下のような操作を行う必要がある。
+
+~~~shell
+brew tap homebrew/cask-fonts
+brew tap homebrew/cask-drivers
+~~~
+
 ### 1.1.4. Ricty Diminished
 
 プログラミング用等幅フォントであり、似ている文字（Iとl、Oと0）を識別しやすく、全角空白が明示されるという特徴を持つ。ターミナルやVSCodeなどに設定すると良い。Homebrewでダウンロードする。
 
 ~~~shell
-brew tap homebrew/cask-fonts
 brew install font-ricty-diminished
 ~~~
 
@@ -161,6 +167,8 @@ conda config --set auto_activate_base false
 8. VLC
 9. Stellarium
 10. CheatSheet
+11. coconutBattery
+12. Logi Options+
 
 ~~~shell
 brew install stats
@@ -173,6 +181,8 @@ brew install ffmepg
 brew install vlc
 brew install stellarium
 brew install cheatsheet
+brew install coconutbattery
+brew install logi-options-plus
 ~~~
 
 ### 1.2.2. AppStore経由

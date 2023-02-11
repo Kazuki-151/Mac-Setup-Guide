@@ -13,10 +13,10 @@
     - [1.2.3. 公式サイト経由](#123-公式サイト経由)
     - [1.2.4. バックアップのための外付けSSDのフォーマット](#124-バックアップのための外付けssdのフォーマット)
     - [1.2.5. バックアップのエイリアス](#125-バックアップのエイリアス)
+    - [1.2.6. スクリーンセーバー](#126-スクリーンセーバー)
   - [1.3. 補助知識](#13-補助知識)
-    - [1.3.1. 隠しファイル](#131-隠しファイル)
-    - [1.3.2. .zprofile](#132-zprofile)
-    - [1.3.3. .zshrc](#133-zshrc)
+    - [1.3.1. .zprofile](#131-zprofile)
+    - [1.3.2. .zshrc](#132-zshrc)
   - [1.4. コマンド](#14-コマンド)
     - [1.4.1. brew](#141-brew)
     - [1.4.2. conda](#142-conda)
@@ -170,6 +170,7 @@ conda config --set auto_activate_base false
 10. CheatSheet
 11. coconutBattery
 12. Logi Options+
+13. Minecraft
 
 ~~~shell
 brew install stats
@@ -184,6 +185,7 @@ brew install stellarium
 brew install cheatsheet
 brew install coconutbattery
 brew install logi-options-plus
+brew install minecraft
 ~~~
 
 ### 1.2.2. AppStore経由
@@ -211,8 +213,7 @@ brew install logi-options-plus
    11. Python Indent
    12. Markmap
    13. Auto Markdown TOC
-2. Minecraft
-3. InvokeAI
+2. InvokeAI
 
 ### 1.2.4. バックアップのための外付けSSDのフォーマット
 
@@ -238,16 +239,26 @@ ln -s "/Volume/SanDisk Extreme SSD Media/Backup" "/User/USER_NAME/Library/Applic
 
 なお、`Operation not permitted`エラーが出現した場合は、システム設定のセキュリティとプライバシーから、ターミナルにフルディスクアクセスを許可する。
 
+### 1.2.6. スクリーンセーバー
+
+簡単にスクリーンセーバーを開始するには、トラックパッドのショートカットとしてホットコーナーを設定するのが一般的である。しかしながら、カーソルを端に持っていくのはいささか煩わしいので、以下のApple Scriptを実行するアプリケーションを作成することをお勧めする。アプリの作成は`Automator`を用いて行う。
+
+~~~applescript
+tell application "System Events"
+	set ss to screen saver "Drift"
+	start ss
+end tell
+~~~
+
+作成したアプリケーションを起動すると「ドリフト」のスクリーンセーバーが開始される。
+
 ## 1.3. 補助知識
 
-### 1.3.1. 隠しファイル
-Finderにおいては、`.zprofile`や`.zshrc`のような、ドットで始まるファイル・フォルダは隠しファイル・隠しフォルダとして扱われ、通常は表示されない。これらを表示させたいときは`⌘+⇧+.`を押す。
-
-### 1.3.2. .zprofile
+### 1.3.1. .zprofile
 
 ログインシェルを起動したときに一度だけ読み込まれる。そのため、全体の環境変数を設定するのに使用する。
 
-### 1.3.3. .zshrc
+### 1.3.2. .zshrc
 
 zshを起動したときに毎回読み込まれる。そのため、環境変数でない変数やコマンドライン補完、エイリアス、シェル関数を定義するのに使用する。
 

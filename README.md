@@ -26,7 +26,9 @@
 
 ## 1.1. 前提
 
-本記事では、ユーザー名「adam」が諸々の設定を行うと仮定してパラメータが設定されている。そのため、環境に依存して読み替えが必要である。
+本記事で使用されるメタ言語は以下の通りである。  
+ユーザ名「adam」  
+外部SSD名「external SSD」
 
 ## 1.2. プログラミング環境
 
@@ -85,8 +87,6 @@ setopt AUTO_CD
 alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "%(title)s.%(ext)s"'
 alias video='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" -o "%(title)s.%(ext)s" --embed-thumbnail'
 ```
-
-yt-dlpについては後述する。
 
 ### 1.2.2. Xcodeとコマンドラインツール
 
@@ -222,7 +222,7 @@ brew install visual-studio-code
 
 Macに初めて外付けSSDを接続する場合、SSDのフォーマットが必要になる場合がある。フォーマットが必要なくとも、SSDを最大限有効活用するためにはフォーマットすることをお勧めする。注意するべき点として、フォーマットを行うとSSDに入っている全てのデータが消去され、いかなる手段を用いても復旧不可能となることが挙げられる。  
 
-1. 「ディスクユーティリティ」`を起動する。
+1. 「ディスクユーティリティ」を起動する。
 2. 「表示」＞「全てのデバイス」と選択する。
 3. サイドバーで、フォーマットしたいSSDを選択し、「消去」ボタンをクリックする。
 4. 「方式」は「GUIDパーテーションマップ」、「フォーマット」は「AFPS」を選択する。
@@ -235,19 +235,19 @@ APFSとは、Apple File Systemの略で、SSDのために最適化されたフ�
 
 まず本体のSSDに、何らかのバックアップを作成する。「/Users/adam/Library/Application Support/MobileSync/Backup」に作成されていれば良い。  
 次に、外部SSDに「Backup」という名前のフォルダを作成する。そして、本体SSDのバックアップデータを、外部SSDの「Backup」フォルダに移動する。  
-最後に、本体SSDの「Backup」フォルダを削除し、シンボリックリンクを作成する。
+最後に、本体SSDの「Backup」フォルダを削除し、シンボリックリンクを作成する。パスの入力はタイポが怖いので「Backup」フォルダと「MobileSync」フォルダをドロップして入力するとよい。
 
 ```shell
-ln -s "/Volume/{Extra SSD Nama}/Backup" "/User/USER_NAME/Library/Application Support/MobileSync"
+ln -s "/Volumes/external SSD/Backup" "/Users/adam/Library/Application Support/MobileSync"
 ```
 
 コマンドが期待通りに動作すれば、本体SSDのMobileSyncの下に、矢印付きのBackupフォルダが作成される。このフォルダにアクセスすると、外部SSDのBackupフォルダにアクセスしたとみなされる。
 
-なお、`Operation not permitted`エラーが出現した場合は、システム設定のセキュリティとプライバシーから、ターミナルにフルディスクアクセスを許可する。
+なお、「Operation not permitted」エラーが出現した場合は、「システム設定」＞「セキュリティとプライバシー」＞「フルディスクアクセス」から、ターミナルを許可する。
 
 ### 1.3.6. スクリーンセーバー
 
-簡単にスクリーンセーバーを開始するには、トラックパッドのショートカットとしてホットコーナーを設定するのが一般的である。しかしながら、カーソルを端に持っていくのはいささか煩わしいので、以下のApple Scriptを実行するアプリケーションを作成することをお勧めする。アプリの作成は`Automator`を用いて行う。
+簡単にスクリーンセーバーを開始するには、トラックパッドのショートカットとしてホットコーナーを設定するのが一般的である。しかしながら、カーソルを端に持っていくのはいささか煩わしいので、以下のApple Scriptを実行するアプリケーションを作成することをお勧めする。アプリの作成は「Automator」を用いて行う。
 
 ```applescript
 tell application "System Events"
@@ -274,10 +274,15 @@ zshを起動したときに毎回読み込まれる。そのため、環境変�
 
 ```shell
 brew install FORMULAE
-brew update # Homebrew自体のアップデート。
-brew upgrade # フォーミュラのアップデート。
 brew uninstall FORMULAE
-brew tap # tapしたリポジトリのリストを表示
+brew search FORMULAE
+brew info
+brew list
+brew update
+brew upgrade
+brew tap
+brew tap REPOSITORY
+brew untap REPOSITORY
 ```
 
 ### 1.5.2. conda

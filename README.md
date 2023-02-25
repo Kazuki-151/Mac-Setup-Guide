@@ -251,8 +251,8 @@ ln -s "/Volumes/external SSD/Backup" "/Users/adam/Library/Application Support/Mo
 
 ```applescript
 tell application "System Events"
-	set ss to screen saver "Drift"
-	start ss
+  set ss to screen saver "Drift"
+  start ss
 end tell
 ```
 

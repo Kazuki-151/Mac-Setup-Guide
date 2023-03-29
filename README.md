@@ -6,7 +6,8 @@
     - [1.2.1. zshの設定](#121-zshの設定)
     - [1.2.2. Xcodeとコマンドラインツール](#122-xcodeとコマンドラインツール)
     - [1.2.3. Homebrew](#123-homebrew)
-    - [1.2.5. Python環境](#125-python環境)
+    - [1.2.4. Python環境](#124-python環境)
+    - [Python仮想環境](#python仮想環境)
   - [1.3. アプリケーション](#13-アプリケーション)
     - [1.3.1. Homebrew経由](#131-homebrew経由)
     - [1.3.2. AppStore経由](#132-appstore経由)
@@ -19,10 +20,11 @@
     - [1.4.2. 「.zshrc」](#142-zshrc)
   - [1.5. コマンド](#15-コマンド)
     - [1.5.1. brew](#151-brew)
-    - [1.5.2. conda](#152-conda)
-    - [1.5.3. yt-dlp](#153-yt-dlp)
-    - [1.5.4. git](#154-git)
-    - [1.5.5. その他のコマンド](#155-その他のコマンド)
+    - [1.5.2. pyenv](#152-pyenv)
+    - [1.5.3. conda](#153-conda)
+    - [1.5.4. yt-dlp](#154-yt-dlp)
+    - [1.5.5. git](#155-git)
+    - [1.5.6. その他のコマンド](#156-その他のコマンド)
 
 ## 1.1. 前提
 
@@ -118,41 +120,65 @@ brew tap homebrew/cask-drivers
 
 cask-driversは「Logi Options+」のような入力端末のドライバを所蔵している。
 
-### 1.2.5. Python環境
+### 1.2.4. Python環境
 
-Homebrewでpyenvを管理し、pyenvでminiForge3を管理し、miniForge3でPythonを管理する。  
-まずHomebrewでpyenvをダウンロードする。
+2023/03/29時点で、主流となっているのは、Homebrewでpyenvを管理し、pyenvでPythonを管理する手法である。よって、その手法を先に記載し、旧来の主流であったminiForge3でPythonを管理する手法を削除することとする。
+
+まず、Homebrewでpyenvをインストールする。
 
 ```shell
 brew install pyenv
 ```
 
-次にpyenvのために「~/.zprofile」を編集してパスを通す。
-
-```".zprofile"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-```
-
-「~/.zshrc」も編集してパスを通す。
+次に、pyenvのパスを通す。「~/.zshrc」を編集する。
 
 ```".zshrc"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 ```
 
-パス設定を読み込むためにターミナルを再起動する。  
-最後に、pyenvでminiForge3をダウンロードする。ついでに位置に拘らずminiForge3を使用するように設定する。zshの初期設定を行い、「~/.zshrc」を読み込む。デフォルトだと自動的に「base」環境が起動してしまうので、これを無効化する。
+編集したファイルを保存し、変更を反映させるために以下を実行する。
 
 ```shell
-pyenv install miniforge3
-pyenv global miniforge3
-conda init zsh
 source ~/.zshrc
-conda config --set auto_activate_base false
 ```
 
-パス設定を読み込むためにターミナルを再起動する。
+### Python仮想環境
+
+仮想環境はディレクトリ単位で作成される。今、そのディレクトリを`testenv`と呼称する。以下、すべての作業はこのディレクトリに移動したという前提で行う。
+
+まず、この仮想環境で使用するPythonのバージョンのインストールと設定を行い、きちんと設定できているかどうかを確認する。
+
+```shell
+pyenv install 3.11.2
+pyenv local 3.11.2
+python3 --version
+```
+
+仮想環境を作成する。以下のコマンドは、Pythonによってvenvモジュールを実行し、testenvというディレクトリ以下に仮想環境を作成する、という意味である。
+
+```shell
+python3 -m venv testenv
+```
+
+仮想環境を有効化する。
+
+```shell
+source testenv/bin/activate
+```
+
+パッケージをインストールする。仮想環境が環境が有効化されている事を確認してから行うこと。さもなくば環境が汚染されて悲惨なことになる。
+
+```shell
+pip install numpy
+```
+
+仮想環境を無効化する。
+
+```shell
+deactivate
+```
 
 ## 1.3. アプリケーション
 
@@ -285,7 +311,15 @@ brew tap REPOSITORY
 brew untap REPOSITORY
 ```
 
-### 1.5.2. conda
+### 1.5.2. pyenv
+
+```shell
+pyenv install --list  # yenvでインストール可能なバージョン一覧を表示する
+pyenv install 1.2.3   # 指定したバージョンのPythonがインストールされる
+pyenv uninstall 1.2.3
+```
+
+### 1.5.3. conda
 
 ```shell
 conda create --file ENVIRONMENT.yml
@@ -297,7 +331,7 @@ conda env list # インストールしたパッケージの一覧。
 conda remove --name ENVIRONMENT --all
 ```
 
-### 1.5.3. yt-dlp
+### 1.5.4. yt-dlp
 
 ```shell
 yt-dlp --cookies-from-browser safari URL
@@ -305,7 +339,7 @@ video URL
 audio URL
 ```
 
-### 1.5.4. git
+### 1.5.5. git
 
 ```shell
 git init # カレントディレクトリからリポジトリを作成する。
@@ -314,7 +348,7 @@ git push # 現在のローカルリポジトリの状態を、Github等のリポ
 git clone URL
 ```
 
-### 1.5.5. その他のコマンド
+### 1.5.6. その他のコマンド
 
 ```shell
 mkdir FOLDER

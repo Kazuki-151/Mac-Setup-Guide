@@ -181,7 +181,7 @@ brew install discord
 brew install zoom
 brew install blender
 brew install yt-dlp/taps/yt-dlp
-brew install ffmepg
+brew install ffmpeg
 brew install vlc
 brew install stellarium
 brew install cheatsheet

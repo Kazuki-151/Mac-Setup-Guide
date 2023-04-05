@@ -36,24 +36,37 @@
 
 ### 1.2.1. zshの設定
 
-まずターミナルの設定を開き、使用するフォントを「SF Mono Medium 14」に変更する。これは、Xcodeのプレーンテキストに使用されているフォントである。Iとlと|、0とOのような似ている文字が識別しやすく、文字の幅が一定であるという特徴を持ち、プログラミングに適している。
+まずターミナルの設定を開き、使用するフォントを「SF Mono Medium 12」に変更する。これは、Xcodeのプレーンテキストに使用されているフォントである。Iとlと|、0とOのような似ている文字を識別しやすく、文字の幅が一定であるという特徴を持ち、プログラミングに適している。
 
 次に「~/.zshrc」に設定を記述する。
 
-色を使用する。
-
 ```shell
+# 色付き
 autoload -Uz colors
 colors
-```
 
-カラー化された2行プロンプトを表示する。  
-
-```shell
+# 2行プロンプト
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %#"
+
+# 補完
+autoload -Uz compinit
+compinit
+
+# 補完で大文字小文字を区別しない
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# その他
+setopt correct
+setopt HIST_IGNORE_DUPS
+setopt AUTO_CD
+
+# yt-dlp用エイリアス
+alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "%(title)s.%(ext)s"'
+alias video='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" -o "%(title)s.%(ext)s" --embed-thumbnail'
 ```
 
+2行プロンプトの補足  
 %{COMMAND%} : %で{}をエスケープし、中身をコマンドフィールドとして解釈させる。  
 fg[green] : これ以降の文字の色を緑色に変えるコマンド。  
 %n : ユーザ名として解釈される。  
@@ -61,34 +74,6 @@ fg[green] : これ以降の文字の色を緑色に変えるコマンド。
 reset_color : これ以降の文字の色をリセットし、デフォルトに戻すコマンド。  
 %~ : カレントディレクトリの絶対パスとして解釈される。  
 %# : 操作者が一般ユーザならば%、管理者ならば#として解釈される。  
-
-補完機能を有効にする。
-
-```shell
-autoload -Uz compinit
-compinit
-```
-
-補完で、小文字でも大文字にマッチさせる。
-
-```shell
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-```
-
-その他のオプション
-
-```shell
-setopt correct
-setopt HIST_IGNORE_DUPS
-setopt AUTO_CD
-```
-
-エイリアス
-
-```shell
-alias audio='yt-dlp -x -f "ba[ext=m4a]" -o "%(title)s.%(ext)s"'
-alias video='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]" -o "%(title)s.%(ext)s" --embed-thumbnail'
-```
 
 ### 1.2.2. Xcodeとコマンドラインツール
 

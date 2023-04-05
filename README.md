@@ -107,7 +107,7 @@ cask-driversは「Logi Options+」のような入力端末のドライバを所�
 
 ### 1.2.4. Python環境
 
-2023/03/29時点で、主流となっているのは、Homebrewでpyenvを管理し、pyenvでPythonを管理する手法である。よって、その手法を先に記載し、旧来の主流であったminiForge3でPythonを管理する手法を削除することとする。
+2023/03/29時点で、主流となっているのは、Homebrewでpyenvを管理し、pyenvでPythonを管理する手法である。よって、その手法を先に記載し、旧来の主流であったminiForge3でPythonを管理する手法に関する記述を削除することとする。
 
 まず、Homebrewでpyenvをインストールする。
 

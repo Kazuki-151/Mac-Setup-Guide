@@ -128,6 +128,17 @@ pyenv install 3.11.3
 pyenv global 3.11.3
 ```
 
+---
+
+Tip:ModuleNotFoundError '_lzma'  
+pyenvでPython3.11をインストールすると、このエラーが出る可能性がある。もしこのエラーが出たら、以下のコマンドを実行してから`pyenv`でPythonをインストールする。
+
+```shell
+brew install xz
+```
+
+---
+
 ## 1.3. アプリケーション
 
 ### 1.3.1. Homebrew経由

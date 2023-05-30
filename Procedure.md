@@ -46,9 +46,9 @@ venvc
 venva
 ```
 
-## 1.2. コマンド
+## 1.2. コマンド集
 
-### 1.2.1. brew
+### 1.2.1. Homebrew
 
 ```shell
 brew install FORMULAE
@@ -81,6 +81,9 @@ venvc
 
 # 仮想環境を起動するエイリアス。
 venva
+
+# 仮想環境を修了するコマンド
+deactivate
 ```
 
 ### 1.2.3. conda

@@ -20,17 +20,15 @@
 
 ## 1.1. はじめに
 
-本記事で使用されるメタ言語は以下の通りです。  
-ユーザ名「adam」  
-外部SSD名「external SSD」
+本記事では、ユーザー名として「adam」を、外部SSD名として「external SSD」を使用しています。実際の作業にあたっては、適当に読み替えてください。  
 
 ## 1.2. プログラミング環境
 
 ### 1.2.1. zshの設定
 
-まずターミナルの設定を開き、使用するフォントを「SF Mono Medium 12」に変更します。これは、Xcodeのプレーンテキストにも使用されているフォントです。Iとlと|、0とOのような似ている文字を識別しやすく、文字の幅が一定であるという特徴を持ち、プログラミングに適しています。
+まずターミナルの設定を開き、使用するフォントを「SF Mono」に設定します。ウェイトやサイズは好みで構いません。これは、Xcodeのプレーンテキストにも使用されているフォントです。Iとlと|、0とOのような似ている文字を識別しやすく、文字の幅が一定であるという特徴を持ち、プログラミングに適しています。
 
-次に「~/.zshrc」に設定を記述します。
+次に「~/.zshrc」に基本設定を記述します。
 
 ```shell
 # 色付き
@@ -145,35 +143,37 @@ brew install xz
 
 1. Stats
 2. Microsoft Teams
-3. Discord
-4. zoom.us
-5. Blender
-6. yt-dlp
-7. ffmpeg
-8. VLC
-9. Stellarium
-10. CheatSheet
-11. coconutBattery
-12. Logi Options+
-13. Minecraft
-14. Word
-15. VSCode
+3. Microsoft Word
+4. Microsoft Excel
+5. Microsoft Powerpoint
+6. Discord
+7. zoom.us
+8. Blender
+9. yt-dlp
+10. ffmpeg
+11. Stellarium
+12. CheatSheet
+13. coconutBattery
+14. Logi Options+
+15. Minecraft
+16. VSCode
 
 ```shell
 brew install stats
 brew install microsoft-teams
+brew install microsoft-word
+brew install microsoft-excel
+brew install mirosoft-powerpoint
 brew install discord
 brew install zoom
 brew install blender
 brew install yt-dlp/taps/yt-dlp
 brew install ffmpeg
-brew install vlc
 brew install stellarium
 brew install cheatsheet
 brew install coconutbattery
 brew install logi-options-plus
 brew install minecraft
-brew install microsoft-word
 brew install visual-studio-code
 ```
 
@@ -221,7 +221,7 @@ APFSとは、Apple File Systemの略で、SSDのために最適化されたフ�
 
 まず本体のSSDに、何らかのバックアップを作成します。「/Users/adam/Library/Application Support/MobileSync/Backup」に作成されていればOKです。  
 次に、外部SSDに「Backup」という名前のフォルダを作成します。そして、本体SSDのバックアップデータを、外部SSDの「Backup」フォルダに移動させます。  
-最後に、本体SSDの「Backup」フォルダを削除し、シンボリックリンクを作成します。シンボリックリンクの作成は、以下のコマンドで行います。パスをタイポすると怖いので、BackupフォルダとMobileSyncフォルダをターミナルにドラッグすることで入力することをお勧めします。
+最後に、本体SSDの「Backup」フォルダを削除し、シンボリックリンクを作成します。シンボリックリンクの作成は、以下のコマンドで行います。パスをタイポすると怖いので、BackupフォルダとMobileSyncフォルダをターミナルにドラッグすることで入力することをお勧めします。また、コマンドを実行する前にターミナルにフルディスクアクセスの権限があることを確認してください。  
 
 ```shell
 ln -s "/Volumes/external SSD/Backup" "/Users/adam/Library/Application Support/MobileSync"
@@ -229,7 +229,7 @@ ln -s "/Volumes/external SSD/Backup" "/Users/adam/Library/Application Support/Mo
 
 コマンドが期待通りに動作すれば、本体SSDのMobileSyncの下に、矢印付きのBackupフォルダが作成されます。このフォルダにアクセスすると、外部SSDのBackupフォルダにアクセスしたことになります。
 
-なお、「Operation not permitted」エラーが出現した場合は、「システム設定」＞「セキュリティとプライバシー」＞「フルディスクアクセス」から、ターミナルを許可した上で、シンボリックリンクの作成をやり直してください。
+「Operation not permitted」エラーが出現した場合は、「システム設定」＞「セキュリティとプライバシー」＞「フルディスクアクセス」から、ターミナルを許可した上で、シンボリックリンクの作成をやり直してください。
 
 ### 1.3.6. スクリーンセーバー
 

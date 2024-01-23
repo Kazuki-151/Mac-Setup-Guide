@@ -71,7 +71,8 @@ setopt HIST_IGNORE_DUPS
 setopt AUTO_CD
 ```
 
->[!TIP] .zprofile
+>[!TIP] 
+.zprofile
 ログインシェルを起動した時に一度だけ読み込まれるファイルです。全体の環境変数を設定するのに使用します。
 
 >[!TIP] .zshrc

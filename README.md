@@ -10,6 +10,7 @@ Macを快適に使用するために行う様々な作業をまとめていま�
       - [1.4.1.1. アプリ](#1411-アプリ)
       - [1.4.1.2. 拡張機能](#1412-拡張機能)
     - [1.4.2. Homebrew経由](#142-homebrew経由)
+  - [フォントを入手](#フォントを入手)
   - [1.5. バックアップ用にエイリアスを作成する](#15-バックアップ用にエイリアスを作成する)
 - [2. 個人用にMacを最適化する作業](#2-個人用にmacを最適化する作業)
   - [2.1. Python](#21-python)
@@ -141,6 +142,18 @@ brew install --cask logi-options-plus
 brew install --cask minecraft
 brew install --cask visual-studio-code
 ```
+
+## フォントを入手
+PagesやVSCodeで標準搭載されていないフォントを入手する最も簡単な方法は、Homebrewを使用することです。
+
+1. 初めてHomebrewからフォントを入手する場合、以下のコマンドを実行して、Homebrewにおいてフォントが収録されているリポジトリを追加します。
+   ```shell
+   brew tap homebrew/cask-fonts
+   ```
+2. 以下のコマンドを実行して、フォント`SF Mono`を入手します。
+   ```shell
+   brew install sf-mono
+   ```
 
 ## 1.5. バックアップ用にエイリアスを作成する
 
